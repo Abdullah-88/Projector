@@ -18,14 +18,14 @@ Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 
 ])
 
-training_data = datasets.CIFAR100(
+training_data = datasets.CIFAR10(
                                        root='data',
                                        train=True,
                                        download=True,
                                        transform=transform 
                                        )
 
-test_data = datasets.CIFAR100(
+test_data = datasets.CIFAR10(
                                        root='data',
                                        train=False,
                                        download=True,
@@ -67,7 +67,7 @@ class ProjectorImageClassification(Projector):
         image_size=32,
         patch_size=4,
         in_channels=3,
-        num_classes=100,
+        num_classes=10,
         d_model=256,      
         num_layers=4,       
     ):
@@ -159,7 +159,7 @@ def test(dataloader, model, loss_fn):
 
 # apply train and test
 
-logname = "/PATH/Projector/Experiments_cifar100/logs_projector/logs_cifar100.csv"
+logname = "/PATH/Projector/Experiments_cifar10/logs_projector/logs_cifar10.csv"
 if not os.path.exists(logname):
   with open(logname, 'w') as logfile:
     logwriter = csv.writer(logfile, delimiter=',')
@@ -183,8 +183,8 @@ print("Done!")
 
 # saving trained model
 
-path = "/PATH/Projector/Experiments_cifar100/weights_projector"
-model_name = "Projector_ImageClassification_cifar100"
+path = "/PATH/Projector/Experiments_cifar10/weights_projector"
+model_name = "Projector_ImageClassification_cifar10"
 torch.save(model.state_dict(), f"{path}/{model_name}.pth")
 print(f"Saved Model State to {path}/{model_name}.pth ")
 
