@@ -7,7 +7,7 @@ from torch import nn
 from torch.utils.data import DataLoader 
 from torchvision import datasets 
 from torchvision.transforms import ToTensor, Normalize, RandomCrop, RandomHorizontalFlip, Compose 
-from projector import Projector
+from projector_LN import Projector
 # data transforms
 
 transform = Compose([
