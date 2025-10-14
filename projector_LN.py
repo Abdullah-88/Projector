@@ -8,7 +8,7 @@ from torch import nn
 class Proj(nn.Module):
     def __init__(self,dim):
         super().__init__()
-        self.p =  nn.Linear(dim,dim)
+        self.p =  nn.Linear(dim,dim,bias = False)
             
        
        
